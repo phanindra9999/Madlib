@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addendum</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Addendum for Lab-7: Madlib Assignment</h1>
+        <h2>Issues Encountered</h2>
+        <p>During the setup, we encountered several warnings when using <strong>pm2</strong> and <strong>forever</strong> to manage the server. These included:</p>
+        <ul>
+            <li><strong>padLevels Circular Dependency Warning:</strong> This warning is related to compatibility issues in certain versions of the packages used, such as <code>morgan</code> and <code>forever</code>. It can typically be ignored as it doesn’t impact the server’s functionality.</li>
+            <li><strong>--minUptime and --spinSleepTime Warnings:</strong> These are displayed because default values are used by <code>forever</code> when these options are not set. This doesn’t affect local development but can be configured as needed for production.</li>
+        </ul>
+
+        <h2>Server Setup Explained</h2>
+        <p>The <code>server.js</code> file sets up an Express.js server with a few routes:</p>
+        <ul>
+            <li><code>/do_a_random</code>: Generates and returns a random number.</li>
+            <li><code>/ITC505/lab-7</code>: Serves the main Mad Lib form from <code>index.html</code>.</li>
+            <li><code>/ITC505/lab-7 [POST]</code>: Processes form submissions, returning a personalized Mad Lib story based on user input.</li>
+        </ul>
+        <p>To handle form data, <code>express.urlencoded</code> middleware is used, and static files are served from the <code>public</code> directory.</p>
+
+        <h2>Troubleshooting Tips</h2>
+        <ul>
+            <li>To run the server in local development mode, use <code>node server.js local</code>.</li>
+            <li>For production, consider using <code>pm2</code> or <code>forever</code> to keep the server running:</li>
+            <ul>
+                <li>With <code>pm2</code>: <code>pm2 start server.js</code></li>
+                <li>With <code>forever</code>: <code>forever start server.js</code></li>
+            </ul>
+            <li>If warnings persist with <code>pm2</code>, use the <code>pm2 logs</code> command to diagnose issues. This helps identify and resolve server-related errors.</li>
+        </ul>
+    </div>
+</body>
+</html>
