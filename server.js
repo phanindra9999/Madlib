@@ -26,7 +26,35 @@ server.post('/submit', (req, res) => {
   if (!noun || !verb || !verbIng || !adjective || !pluralNoun) {
     res.send(`
       <html>
-      <head><title>Submission Failed</title></head>
+      <head>
+        <title>Submission Failed</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+          }
+          h1 {
+            color: #721c24;
+          }
+          p {
+            font-size: 16px;
+          }
+          a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #f5c6cb;
+            color: #721c24;
+            text-decoration: none;
+            border-radius: 5px;
+          }
+          a:hover {
+            background-color: #f1b0b7;
+          }
+        </style>
+      </head>
       <body>
         <h1>Submission Failed</h1>
         <p>Please fill out ALL fields.</p>
@@ -46,7 +74,35 @@ server.post('/submit', (req, res) => {
 
   res.send(`
     <html>
-    <head><title>Submission Successful</title></head>
+    <head>
+      <title>Submission Successful</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #d4edda;
+          color: #155724;
+          padding: 20px;
+        }
+        h1 {
+          color: #155724;
+        }
+        p {
+          font-size: 16px;
+        }
+        a {
+          display: inline-block;
+          margin-top: 10px;
+          padding: 10px 15px;
+          background-color: #c3e6cb;
+          color: #155724;
+          text-decoration: none;
+          border-radius: 5px;
+        }
+        a:hover {
+          background-color: #b1dfbb;
+        }
+      </style>
+    </head>
     <body>
       <h1>Submission Successful</h1>
       <p>${madLib}</p>
